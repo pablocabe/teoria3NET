@@ -18,7 +18,7 @@ Comprobar tipeando teclas y modificadores (shift, ctrl, alt) para apreciar de qu
 puede acceder a esta información en el código del programa.
 */
 
-static void ejercicio1(){
+void ejercicio1(){
     Console.CursorVisible = false;
     ConsoleKeyInfo k = Console.ReadKey(true);
     while (k.Key != ConsoleKey.End){
@@ -35,6 +35,16 @@ en la consola.
 Ayuda: Si A es un arreglo, A.GetLength(i) devuelve la longitud del arreglo en la dimensión i.
 */
 
-static void ejercicio2(){
-    void ImprimirMatriz(double[,] matriz);
+ void ejercicio2(){
+    int[,] matriz = new int[,]{{1,2,3},{4,5,6}};
+    imprimirMatriz(matriz);
+}
+
+ void imprimirMatriz (int[,] matriz){
+    for (int i = 0; i < matriz.GetLength(0); i++){
+        Console.Write(matriz[i,0]);
+    }
+
+    Console.WriteLine(matriz.GetLength(0));
+    Console.WriteLine(matriz.GetLength(1));
 }
