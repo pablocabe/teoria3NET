@@ -22,6 +22,12 @@ switch (ejercicio){
     case 6:
         ejercicio6();
         break;
+    case 7:
+        ejercicio7();
+        break;
+    case 8:
+        ejercicio7();
+        break;
 }
 
 /* Ejercicio 1
@@ -201,7 +207,7 @@ double[][] GetArregloDeArreglos(double[,] matriz){
 
 
 /* Ejercicio 6
- Implementar los siguientes métodos que devuelvan la suma, resta y multiplicación de matrices 
+Implementar los siguientes métodos que devuelvan la suma, resta y multiplicación de matrices 
 pasadas como parámetros. Para el caso de la suma y la resta, las matrices deben ser del mismo tamaño, 
 en caso de no serlo devolver null. Para el caso de la multiplicación la cantidad de columnas de A debe 
 ser igual a la cantidad de filas de B, en caso contrario generar una excepción ArgumentException.
@@ -213,4 +219,26 @@ double[,] Multiplicacion(double[,] A, double[,] B)
 
 void ejercicio6(){
 
+}
+
+/* Ejercicio 7
+¿De qué tipo quedan definidas las variables x, y, z en el siguiente código? 
+*/
+
+void ejercicio7(){
+    int i = 10;
+    var x = i * 1.0;
+    var y = 1f;
+    var z = i * y;
+}
+
+/* Ejercicio 8
+Señalar errores de compilación y/o ejecución en el siguiente código
+*/
+
+void ejercicio8(){
+    object obj = new int[10];
+    dynamic dyna = 13;
+    Console.WriteLine(obj.Length);
+    Console.WriteLine(dyna.Length); 
 }
