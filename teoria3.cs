@@ -26,7 +26,7 @@ switch (ejercicio){
         ejercicio7();
         break;
     case 8:
-        ejercicio7();
+        ejercicio8();
         break;
 }
 
