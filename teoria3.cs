@@ -44,13 +44,17 @@ Ayuda: Si A es un arreglo, A.GetLength(i) devuelve la longitud del arreglo en la
     imprimirMatriz(matriz);
 }
 
- void imprimirMatriz (double[,] matriz){
-    for (int i = 0; i < matriz.GetLength(0); i++){
-        Console.Write(matriz[i,0]);
+ void imprimirMatriz (double[,] matriz){ // Recorre las filas
+    for (int i = 0 ; i < matriz.GetLength(0) ; i++){ // Recorre las columnas
+        for (int j = 0 ; j < matriz.GetLength(1) ; j++){
+            Console.Write(matriz[i,j] + " "); // Imprime elemento con espacio
+        }
+        Console.WriteLine(); // Salto de línea al finalizar una fila
     }
+    Console.ReadKey(true);
 
-    Console.WriteLine(matriz.GetLength(0)); // imprime cantidad de filas
-    Console.WriteLine(matriz.GetLength(1)); // imprime cantidad de columnas
+    // Console.WriteLine(matriz.GetLength(0)); devuelve cantidad de filas
+    // Console.WriteLine(matriz.GetLength(1)); devuelve cantidad de columnas
 }
 
 /* Ejercicio 3
@@ -65,13 +69,15 @@ void ejercicio3(){
     ImprimirMatrizConFormato(matriz, "0.0");
 }
 
-void ImprimirMatrizConFormato(double[,] matriz, string formatString){
+
+
+/* void ImprimirMatrizConFormato(double[,] matriz, string formatString){
     for (int i = 0 ; i < matriz.GetLength(0) ; i++){
         for (int j = 0 ; j < matriz.GetLength(1) ; j++){
             Console.WriteLine(matriz[i,j].ToString(formatString));
         }
     }
-}
+} */
 
 /* Ejericio 4
 Implementar los métodos GetDiagonalPrincipal y GetDiagonalSecundaria que devuelven
