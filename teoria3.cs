@@ -23,6 +23,7 @@ puede acceder a esta información en el código del programa.
 
 void ejercicio1(){
     Console.CursorVisible = false;
+    // la propiedad Console.CursorVisible controla la visibilidad del cursor en la consola.
     ConsoleKeyInfo k = Console.ReadKey(true);
     while (k.Key != ConsoleKey.End){
     Console.Clear();
@@ -39,11 +40,11 @@ Ayuda: Si A es un arreglo, A.GetLength(i) devuelve la longitud del arreglo en la
 */
 
  void ejercicio2(){
-    int[,] matriz = new int[,]{{1,2,3},{4,5,6}};
+    double[,] matriz = new double[,]{{1,2,3},{4,5,6}};
     imprimirMatriz(matriz);
 }
 
- void imprimirMatriz (int[,] matriz){
+ void imprimirMatriz (double[,] matriz){
     for (int i = 0; i < matriz.GetLength(0); i++){
         Console.Write(matriz[i,0]);
     }
@@ -77,7 +78,3 @@ Implementar los métodos GetDiagonalPrincipal y GetDiagonalSecundaria que devuel
 un vector con la diagonal correspondiente de la matriz pasada como parámetro. Si la matriz no es
 cuadrada generar una excepción ArgumentException
 */
-
-void ejercicio4(){
-    
-}
