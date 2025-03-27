@@ -16,6 +16,12 @@ switch (ejercicio){
     case 4:
         ejercicio4();
         break;
+    case 5:
+        ejercicio5();
+        break;
+    case 6:
+        ejercicio6();
+        break;
 }
 
 /* Ejercicio 1
@@ -89,7 +95,12 @@ cuadrada generar una excepción ArgumentException
 */
 
 void ejercicio4(){
-    int[,] matriz = new int[,]{{1, 2, 3},{4, 5, 6},{7, 8, 9},{10, 11, 12}};
+
+    int[,] matriz = new int[,]{
+    {1, 2, 3},  // 1ª fila con 3 columnas
+    {4, 5, 6},  // 2ª fila con 3 columnas
+    {7, 8, 9},  // 3ª fila con 3 columnas
+    {10, 11, 12}};  // 4ª fila con 3 columnas (4 filas en total)
 
     try
     {
@@ -146,4 +157,60 @@ int[] GetDiagonalSecundaria (int[,] matriz){
     }
 
     return diagonal;
+}
+
+/*Ejercicio 5
+Implementar un método que devuelva un arreglo de arreglos con
+los mismos elementos que la matriz pasada como parámetro:
+double[][] GetArregloDeArreglo(double [,] matriz)
+*/
+
+void ejercicio5(){
+    
+    double[,] matriz = new double[,]{
+        {1, 2, 3},  // 1ª fila con 3 columnas
+        {4, 5, 6},  // 2ª fila con 3 columnas
+        {7, 8, 9}};  // 3ª fila con 3 columnas
+    
+    double[][] ArregloDeArreglos = GetArregloDeArreglos(matriz);
+
+    for (int i = 0; i < ArregloDeArreglos.Length; i++){
+        Console.WriteLine(string.Join(", ", ArregloDeArreglos[i]));
+    }
+    Console.WriteLine("Ingrese un caracter para finalizar el programa");
+    Console.ReadKey(true);
+}
+
+
+double[][] GetArregloDeArreglos(double[,] matriz){
+
+    int filas = matriz.GetLength(0);
+    int columnas = matriz.GetLength(1);
+
+    double[][] ArregloDeArreglos = new double[filas][]; // solo se define el tamaño de la primera dimensión
+
+    for (int i = 0; i < matriz.GetLength(0); i++){
+        ArregloDeArreglos[i] = new double[columnas]; // inicializar cada fila individualmente
+        for (int j = 0; j < matriz.GetLength(1); j++){
+            ArregloDeArreglos[i][j] = matriz[i, j];
+        }
+    }
+
+    return ArregloDeArreglos;
+}
+
+
+/* Ejercicio 6
+ Implementar los siguientes métodos que devuelvan la suma, resta y multiplicación de matrices 
+pasadas como parámetros. Para el caso de la suma y la resta, las matrices deben ser del mismo tamaño, 
+en caso de no serlo devolver null. Para el caso de la multiplicación la cantidad de columnas de A debe 
+ser igual a la cantidad de filas de B, en caso contrario generar una excepción ArgumentException.
+
+double[,]? Suma(double[,] A, double[,] B)
+double[,]? Resta(double[,] A, double[,] B)
+double[,] Multiplicacion(double[,] A, double[,] B)
+*/
+
+void ejercicio6(){
+
 }
