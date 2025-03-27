@@ -13,6 +13,9 @@ switch (ejercicio){
     case 3:
         ejercicio3();
         break;
+    case 4:
+        ejercicio4();
+        break;
 }
 
 /* Ejercicio 1
@@ -39,7 +42,7 @@ en la consola.
 Ayuda: Si A es un arreglo, A.GetLength(i) devuelve la longitud del arreglo en la dimensión i.
 */
 
- void ejercicio2(){
+void ejercicio2(){
     double[,] matriz = new double[,]{{1, 2, 3},{4, 5, 6}};
     imprimirMatriz(matriz);
 }
@@ -84,3 +87,63 @@ Implementar los métodos GetDiagonalPrincipal y GetDiagonalSecundaria que devuel
 un vector con la diagonal correspondiente de la matriz pasada como parámetro. Si la matriz no es
 cuadrada generar una excepción ArgumentException
 */
+
+void ejercicio4(){
+    int[,] matriz = new int[,]{{1, 2, 3},{4, 5, 6},{7, 8, 9}};
+
+    try
+    {
+        int[] diagonalPrincipal = GetDiagonalPrincipal(matriz);
+        int[] diagonalSecundaria = GetDiagonalSecundaria(matriz);
+
+        Console.WriteLine("Diagonal Principal: " + string.Join(", ", diagonalPrincipal));
+        Console.WriteLine("Diagonal Secundaria: " + string.Join(", ", diagonalSecundaria));
+    }
+
+    catch (ArgumentException e)
+    {
+        Console.WriteLine("Error: " + e.Message);
+    }
+
+    finally
+    {
+        Console.WriteLine("Ingrese un caracter para finalizar el programa");
+        Console.ReadKey(true);
+    }
+}
+
+int[] GetDiagonalPrincipal (int[,] matriz){
+
+    int filas = matriz.GetLength(0);
+    int columnas = matriz.GetLength(1);
+
+    if (filas != columnas){
+        throw new ArgumentException("La matriz no es cuadrada");
+    }
+
+    int[] diagonal = new int[filas];
+
+    for (int i = 0 ; i < filas ; i++){
+        diagonal[i] = matriz[i,i];
+    }
+
+    return diagonal;
+}
+
+int[] GetDiagonalSecundaria (int[,] matriz){
+
+    int filas = matriz.GetLength(0);
+    int columnas = matriz.GetLength(1);
+
+    if (filas != columnas){
+        throw new ArgumentException("La matriz no es cuadrada");
+    }
+
+    int[] diagonal = new int[filas];
+
+    for (int i = 0 ; i < filas ; i++){
+        diagonal[i] = matriz[i, columnas - 1 - i];
+    }
+
+    return diagonal;
+}
