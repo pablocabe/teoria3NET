@@ -40,7 +40,7 @@ Ayuda: Si A es un arreglo, A.GetLength(i) devuelve la longitud del arreglo en la
 */
 
  void ejercicio2(){
-    double[,] matriz = new double[,]{{1,2,3},{4,5,6}};
+    double[,] matriz = new double[,]{{1, 2, 3},{4, 5, 6}};
     imprimirMatriz(matriz);
 }
 
@@ -65,19 +65,19 @@ La plantilla de formato es un string de acuerdo a las convenciones de formato co
 */
 
 void ejercicio3(){
-    double[,] matriz = new double[,]{{1.1,2.2,3.3},{4.4,5.5,6.6}};
+    double[,] matriz = new double[,]{{1.1, 2.2, 3.3},{4.4, 5.5, 6.6}};
     ImprimirMatrizConFormato(matriz, "0.0");
 }
 
-
-
-/* void ImprimirMatrizConFormato(double[,] matriz, string formatString){
-    for (int i = 0 ; i < matriz.GetLength(0) ; i++){
+void ImprimirMatrizConFormato(double[,] matriz, string formatString){
+    for (int i = 0 ; i < matriz.GetLength(0) ; i++){ // Recorre las columnas
         for (int j = 0 ; j < matriz.GetLength(1) ; j++){
-            Console.WriteLine(matriz[i,j].ToString(formatString));
+            Console.Write(matriz[i,j].ToString(formatString) + " "); // Imprime elemento con espacio
         }
+        Console.WriteLine(); // Salto de línea al finalizar una fila
     }
-} */
+    Console.ReadKey(true);
+}
 
 /* Ejericio 4
 Implementar los métodos GetDiagonalPrincipal y GetDiagonalSecundaria que devuelven
