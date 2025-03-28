@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Text;
 
 Console.WriteLine("Ingrese un numero de ejercicio");
 string? input = Console.ReadLine();
@@ -36,6 +37,20 @@ switch (ejercicio){
         break;
     case 11:
         ejercicio11();
+        break;
+    case 12:
+        ejercicio12();
+        break;
+    case 14:
+        Console.WriteLine("Ingrese la cadena de texto");
+        string? cadena = Console.ReadLine();
+        ejercicio14(cadena);
+        break;
+    case 15:
+        ejercicio15();
+        break;
+    case 16:
+        ejercicio16();
         break;
 }
 
@@ -328,4 +343,127 @@ void ejercicio11(){
     
     a.Remove(5); // No existe el elemento int 5, nunca lo encuentra
     a.RemoveAt(4); // Intenta eliminar el elemento en el índice especificado, pero está fuera de rango (0, 1, 2, 3)
+}
+
+/* Ejercicio 12
+Realizar un análisis sintáctico para determinar si los paréntesis en una expresión aritmética están 
+bien balanceados. Verificar que por cada paréntesis de apertura exista uno de cierre en la cadena de 
+entrada. Utilizar una pila para resolverlo. Los paréntesis de apertura de la entrada se almacenan en una 
+pila hasta encontrar uno de cierre, realizándose entonces la extracción del último paréntesis de apertura 
+almacenado. Si durante el proceso se lee un paréntesis de cierre y la pila está vacía, entonces la cadena 
+es incorrecta. Al finalizar el análisis, la pila debe quedar vacía para que la cadena leída sea aceptada, de 
+lo contrario la misma no es válida.
+*/
+
+void ejercicio12(){
+    string? str = Console.ReadLine();
+
+
+Balanceado(str);
+
+bool Balanceado(string str)
+{
+    Stack<char> pila = new Stack<char>();
+    foreach (char i in str)
+    {
+        if(i == '(')
+        {
+            pila.Push(i);
+        }
+        else if(i == ')')
+        {
+            if(pila.Count != 0)
+            {
+                pila.Pop();
+            }
+            else 
+            {
+                return false;
+            }
+        }
+    }
+   
+     return (pila.Count == 0);
+    
+    }
+}
+
+void ejercicio14(string str, params int[] clave){
+    Queue<char> cola = new Queue<char>();    
+    Dictionary<int, char> numerosAlfabeto = new Dictionary<int, char>()
+        {
+            {1, 'A'}, {2, 'B'}, {3, 'C'}, {4, 'D'}, {5, 'E'}, {6, 'F'}, {7, 'G'}, {8, 'H'},
+            {9, 'I'}, {10, 'J'}, {11, 'K'}, {12, 'L'}, {13, 'M'}, {14, 'N'}, {15, 'Ñ'}, {16, 'O'},
+            {17, 'P'}, {18, 'Q'}, {19, 'R'}, {20, 'S'}, {21, 'T'}, {22, 'U'}, {23, 'V'}, {24, 'W'},
+            {25, 'X'}, {26, 'Y'}, {27, 'Z'}, {28, ' '} // 'sp' representa el espacio
+        };
+     Dictionary<char, int> alfabetoNumeros = new Dictionary<char, int>()
+        {
+            {'A', 1}, {'B', 2}, {'C', 3}, {'D', 4}, {'E', 5}, {'F', 6}, {'G', 7}, {'H', 8},
+            {'I', 9}, {'J', 10}, {'K', 11}, {'L', 12}, {'M', 13}, {'N', 14}, {'Ñ', 15}, {'O', 16},
+            {'P', 17}, {'Q', 18}, {'R', 19}, {'S', 20}, {'T', 21}, {'U', 22}, {'V', 23}, {'W', 24},
+            {'X', 25}, {'Y', 26}, {'Z', 27}, {' ', 28} // 'sp' representa el espacio
+        };
+    int indice = clave.Length;
+    int j = 0;
+    for (int i = 0; i < str.Length; i++)
+    {
+        int id = alfabetoNumeros[str[i]];
+        if(indice == j)
+        {
+            j = 0;
+        }
+        id = id + clave[j];
+        if (id % 28 >= 0 )
+        {
+            
+        }
+
+
+
+
+    }
+    
+}
+
+
+/*Ejercicio 15
+¿Qué salida por la consola produce el siguiente código?
+¿Qué se puede inferir respecto de la excepción división por cero en relación al tipo de los operandos?
+*/
+
+void ejercicio15(){
+
+    int x = 0;
+
+    try{
+    Console.WriteLine(1.0 / x); // Cuando se divide un double por 0, en C# el resultado no lanza una excepción, sino que devuelve Infinity o -Infinity.
+    Console.WriteLine(1 / x); //  La división entera por 0 genera una excepción (System.DivideByZeroException).
+    Console.WriteLine("todo OK"); // La línea "todo OK" no se imprime porque el programa lanza una excepción en la segunda operación (1 / x).
+    }
+
+    catch (Exception e){
+    Console.WriteLine(e.Message);
+    }
+
+    // Salida esperada por consola: 
+    // Infinity
+    // Attempted to divide by zero.
+}
+
+/* Ejercicio 16
+Implementar un programa que permita al usuario ingresar números por la consola. Debe ingresarse
+un número por línea finalizado el proceso cuando el usuario ingresa una línea vacía. A medida que se
+van ingresando los valores el sistema debe mostrar por la consola la suma acumulada de los mismos.
+Utilizar double.Parse() y try/catch para validar que la entrada ingresada sea un número válido,
+en caso contrario advertir con un mensaje al usuario y proseguir con el ingreso de datos.
+*/
+
+void ejercicio16(){
+    
+    Console.WriteLine("Ingrese un numero por teclado o espacio para finalizar");
+    string numeroTeclado = Console.ReadLine();
+    while (numeroTeclado <> (" ")){
+        
+    }
 }
