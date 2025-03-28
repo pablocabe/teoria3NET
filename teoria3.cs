@@ -31,6 +31,12 @@ switch (ejercicio){
     case 9:
         ejercicio9();
         break;
+    case 10:
+        ejercicio10();
+        break;
+    case 11:
+        ejercicio11();
+        break;
 }
 
 /* Ejercicio 1
@@ -288,4 +294,25 @@ void ejercicio9(){
     d = c; // Pueden asignarse entre sí porque tienen exactamente el mismo tipo.
     // e = d; // Error: no pueden asignarse entre sí porque tienen distintos tipos.
     // f = e; // Error: aunque las propiedades son las mismas, el orden importa.
+}
+
+/* Ejercicio 10
+Verificar con un par de ejemplos si la sección opcional [:formatString] de formatos 
+compuestos redondea o trunca cuando se formatean números reales restringiendo la cantidad de 
+decimales. Plantear los ejemplos con cadenas de formato compuesto y con cadenas interpoladas
+*/
+
+void ejercicio10(){
+
+}
+
+
+/* Ejercicio 11
+Señalar errores de ejecución en el siguiente código
+*/
+
+void ejercicio11(){
+    List<int> a = [ 1, 2, 3, 4 ];
+    a.Remove(5);
+    a.RemoveAt(4);
 }
