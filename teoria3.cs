@@ -28,6 +28,9 @@ switch (ejercicio){
     case 8:
         ejercicio8();
         break;
+    case 9:
+        ejercicio9();
+        break;
 }
 
 /* Ejercicio 1
@@ -226,10 +229,17 @@ void ejercicio6(){
 */
 
 void ejercicio7(){
-    int i = 10;
-    var x = i * 1.0;
-    var y = 1f;
-    var z = i * y;
+    int i = 10; // integer
+    var x = i * 1.0; // integer x double = double
+    var y = 1f; // f = float
+    var z = i * y; // integer x float = float
+
+    Console.WriteLine(x.GetType());
+    Console.WriteLine(y.GetType());
+    Console.WriteLine(z.GetType());
+
+    Console.WriteLine("Ingrese un caracter para finalizar el programa");
+    Console.ReadKey(true);
 }
 
 /* Ejercicio 8
@@ -237,8 +247,38 @@ Señalar errores de compilación y/o ejecución en el siguiente código
 */
 
 void ejercicio8(){
-    object obj = new int[10];
+    object obj = new int[10]; // El objeto obj se declara como tipo object pero se inicializa con un arreglo de enteros
     dynamic dyna = 13;
-    Console.WriteLine(obj.Length);
-    Console.WriteLine(dyna.Length); 
+
+    // Console.WriteLine(obj.Length); // El tipo object no tiene una propiedad Length, lo cual provoca un error de compilación
+    // Para acceder a la longitud del arreglo, sería necesario hacer un casting explícito:
+    // Console.WriteLine(((int[])obj).Length);
+
+    Console.WriteLine(dyna.Length); // Dynamic permite evlauar en tiempo de ejecución pero el int 13 no tiene una propiedad Length
+    // Para evitar el error, deberías verificar el tipo antes de intentar acceder a la propiedad
+}
+
+
+/* Ejercicio 9
+¿Qué líneas del siguiente método provocan error de compilación y por qué?
+*/
+
+void ejercicio9(){
+    var a = 3L;
+    dynamic b = 32;
+    object obj = 3;
+    a = a * 2.0;
+    b = b * 2.0;
+    b = "hola";
+    obj = b;
+    b = b + 11;
+    obj = obj + 11;
+    var c = new { Nombre = "Juan" };
+    var d = new { Nombre = "María" };
+    var e = new { Nombre = "Maria", Edad = 20 };
+    var f = new { Edad = 20, Nombre = "Maria" };
+    f.Edad = 22;
+    d = c;
+    e = d;
+    f = e;
 }
