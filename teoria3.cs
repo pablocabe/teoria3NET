@@ -264,21 +264,28 @@ void ejercicio8(){
 */
 
 void ejercicio9(){
-    var a = 3L;
-    dynamic b = 32;
-    object obj = 3;
-    a = a * 2.0;
-    b = b * 2.0;
-    b = "hola";
-    obj = b;
-    b = b + 11;
-    obj = obj + 11;
+    var a = 3L; // La letra L después del número entero indica que el valor es de tipo long en C#.
+    dynamic b = 32; // b no tendrá comprobación en tiempo de compilación
+    object obj = 3; // valor cuyo tipo puede variar en tiempo de ejecución
+
+    // a = a * 2.0; // Error: long x double daría un double, y var representa inmutabilidad en el tipo de a
+    // Como a es de tipo long, no puede almacenar el resultado, ya que el tipo no coincide.
+
+    b = b * 2.0; // int x double = double. Ahora b, sin comprobación, se convierte en double
+    b = "hola"; // ahora b es un string
+    // No hay error de compilación porque el tipo de b se ajusta dinámicamente.
+
+    obj = b; // obj almacena un string. No hay error porque ambos (dynamic y object) permiten almacenar cualquier tipo de valor.
+    b = b + 11; // Esta instrucción provocará un error en tiempo de ejecución. No se puede sumar un string con un int.
+    // obj = obj + 11; // Esta instrucción provoca un error en tiempo de compilación. El tipo object no admite directamente operaciones aritméticas.
+
+    // Creación de objetos anónimos
     var c = new { Nombre = "Juan" };
     var d = new { Nombre = "María" };
     var e = new { Nombre = "Maria", Edad = 20 };
     var f = new { Edad = 20, Nombre = "Maria" };
-    f.Edad = 22;
-    d = c;
-    e = d;
-    f = e;
+    // f.Edad = 22; // Error: las propiedades de los objetos anónimos son inmutables. Sus propiedades son de solo lectura.
+    d = c; // Pueden asignarse entre sí porque tienen exactamente el mismo tipo.
+    // e = d; // Error: no pueden asignarse entre sí porque tienen distintos tipos.
+    // f = e; // Error: aunque las propiedades son las mismas, el orden importa.
 }
