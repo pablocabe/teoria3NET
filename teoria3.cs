@@ -270,7 +270,7 @@ void ejercicio8(){
 */
 
 void ejercicio9(){
-    var a = 3L; // La letra L después del número entero indica que el valor es de tipo long en C#.
+    // var a = 3L; // La letra L después del número entero indica que el valor es de tipo long en C#.
     dynamic b = 32; // b no tendrá comprobación en tiempo de compilación
     object obj = 3; // valor cuyo tipo puede variar en tiempo de ejecución
 
