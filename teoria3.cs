@@ -304,6 +304,16 @@ decimales. Plantear los ejemplos con cadenas de formato compuesto y con cadenas 
 
 void ejercicio10(){
 
+    double num1 = 3.14159;
+    Console.WriteLine("{0:F2}", num1); // Dos decimales
+    
+    double num2 = 3.14159;
+    Console.WriteLine($"{num2:F2}"); // Dos decimales
+
+    // Ambas veces redondea de forma automática.
+    // En el caso de números reales, la sección [:formatString] puede utilizarse para limitar la cantidad de decimales.
+    // Sin embargo, el comportamiento por defecto es el redondeo, no la truncación, aunque puedes controlar esto con las especificaciones de formato.
+
 }
 
 
@@ -312,7 +322,10 @@ Señalar errores de ejecución en el siguiente código
 */
 
 void ejercicio11(){
-    List<int> a = [ 1, 2, 3, 4 ];
-    a.Remove(5);
-    a.RemoveAt(4);
+    
+    List<int> a = [ 1, 2, 3, 4 ]; // Error en la sintaxis, está declarado pero no bien instanciado
+    // List<int> a = new List<int> { 1, 2, 3, 4 };  // Forma correcta
+    
+    a.Remove(5); // No existe el elemento int 5, nunca lo encuentra
+    a.RemoveAt(4); // Intenta eliminar el elemento en el índice especificado, pero está fuera de rango (0, 1, 2, 3)
 }
