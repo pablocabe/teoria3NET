@@ -435,7 +435,7 @@ void ejercicio16(){
             Console.WriteLine("La suma acumulada es: " + suma);
         }
 
-        catch(FormatException){
+        catch(FormatException){ // Captura exclusivamente los errores de formato, es una buena práctica
             Console.WriteLine("Entrada no válida, ingrese un número");
         }
     }
