@@ -347,36 +347,39 @@ lo contrario la misma no es válida.
 */
 
 void ejercicio12(){
-    string? str = Console.ReadLine();
 
+    Console.WriteLine ("Ingrese una expresion aritmetica");
+    string? expresionAritmetica = Console.ReadLine();
 
-Balanceado(str);
-
-bool Balanceado(string str)
-{
-    Stack<char> pila = new Stack<char>();
-    foreach (char i in str)
-    {
-        if(i == '(')
-        {
-            pila.Push(i);
-        }
-        else if(i == ')')
-        {
-            if(pila.Count != 0)
-            {
-                pila.Pop();
-            }
-            else 
-            {
-                return false;
-            }
-        }
+    if (estaBalanceada(expresionAritmetica)){
+        Console.WriteLine ("Los parentesis de la expresion aritmetica estan bien balanceados");
     }
-   
-     return (pila.Count == 0);
+    else{
+        Console.WriteLine ("Los parentesis de la expresion aritmetica estan desbalanceados");
+    }
+
+    Console.WriteLine("Ingrese un caracter para finalizar el programa");
+    Console.ReadKey(true);
+}
     
+
+bool estaBalanceada (string expresionAritmetica){
+    
+    Stack<char> pila = new Stack<char>();
+
+    foreach (char c in expresionAritmetica){
+        if (c == '('){
+            pila.Push(c); // Apilar si es un paréntesis de apertura
+        }
+        else if (c == ')'){
+            if (pila.Count == 0){ // Verificar si la pila está vacía
+                return false; // Paréntesis de cierre sin apertura previa
+            }
+            pila.Pop(); // Desapilar el último paréntesis de apertura
+        }
     }
+
+    return pila.Count == 0;
 }
 
 /*Ejercicio 15
