@@ -43,6 +43,9 @@ switch (ejercicio){
     case 15:
         ejercicio15();
         break;
+    case 16:
+        ejercicio16();
+        break;
 }
 
 /* Ejercicio 1
@@ -349,7 +352,7 @@ lo contrario la misma no es válida.
 void ejercicio12(){
 
     Console.WriteLine ("Ingrese una expresion aritmetica");
-    string? expresionAritmetica = Console.ReadLine();
+    string expresionAritmetica = Console.ReadLine() ?? ""; // Si es null, asigna una cadena vacía
 
     if (estaBalanceada(expresionAritmetica)){
         Console.WriteLine ("Los parentesis de la expresion aritmetica estan bien balanceados");
@@ -413,3 +416,31 @@ van ingresando los valores el sistema debe mostrar por la consola la suma acumul
 Utilizar double.Parse() y try/catch para validar que la entrada ingresada sea un número válido,
 en caso contrario advertir con un mensaje al usuario y proseguir con el ingreso de datos.
 */
+
+void ejercicio16(){
+
+    double suma = 0;
+
+    while (true){
+        Console.WriteLine("Ingrese un numero");
+        string? numero = Console.ReadLine();
+
+        if (string.IsNullOrEmpty(numero)){
+            break;
+        }
+
+        try{
+            double valor = double.Parse(numero);
+            suma += valor;
+            Console.WriteLine("La suma acumulada es: " + suma);
+        }
+
+        catch(FormatException){
+            Console.WriteLine("Entrada no válida, ingrese un número");
+        }
+    }
+
+    Console.WriteLine("Proceso finalizado. Suma total: " + suma);
+    Console.WriteLine("Ingrese un caracter para finalizar el programa");
+    Console.ReadKey(true);
+}
