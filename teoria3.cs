@@ -41,16 +41,8 @@ switch (ejercicio){
     case 12:
         ejercicio12();
         break;
-    case 14:
-        Console.WriteLine("Ingrese la cadena de texto");
-        string? cadena = Console.ReadLine();
-        ejercicio14(cadena);
-        break;
     case 15:
         ejercicio15();
-        break;
-    case 16:
-        ejercicio16();
         break;
 }
 
@@ -388,45 +380,6 @@ bool Balanceado(string str)
     }
 }
 
-void ejercicio14(string str, params int[] clave){
-    Queue<char> cola = new Queue<char>();    
-    Dictionary<int, char> numerosAlfabeto = new Dictionary<int, char>()
-        {
-            {1, 'A'}, {2, 'B'}, {3, 'C'}, {4, 'D'}, {5, 'E'}, {6, 'F'}, {7, 'G'}, {8, 'H'},
-            {9, 'I'}, {10, 'J'}, {11, 'K'}, {12, 'L'}, {13, 'M'}, {14, 'N'}, {15, 'Ñ'}, {16, 'O'},
-            {17, 'P'}, {18, 'Q'}, {19, 'R'}, {20, 'S'}, {21, 'T'}, {22, 'U'}, {23, 'V'}, {24, 'W'},
-            {25, 'X'}, {26, 'Y'}, {27, 'Z'}, {28, ' '} // 'sp' representa el espacio
-        };
-     Dictionary<char, int> alfabetoNumeros = new Dictionary<char, int>()
-        {
-            {'A', 1}, {'B', 2}, {'C', 3}, {'D', 4}, {'E', 5}, {'F', 6}, {'G', 7}, {'H', 8},
-            {'I', 9}, {'J', 10}, {'K', 11}, {'L', 12}, {'M', 13}, {'N', 14}, {'Ñ', 15}, {'O', 16},
-            {'P', 17}, {'Q', 18}, {'R', 19}, {'S', 20}, {'T', 21}, {'U', 22}, {'V', 23}, {'W', 24},
-            {'X', 25}, {'Y', 26}, {'Z', 27}, {' ', 28} // 'sp' representa el espacio
-        };
-    int indice = clave.Length;
-    int j = 0;
-    for (int i = 0; i < str.Length; i++)
-    {
-        int id = alfabetoNumeros[str[i]];
-        if(indice == j)
-        {
-            j = 0;
-        }
-        id = id + clave[j];
-        if (id % 28 >= 0 )
-        {
-            
-        }
-
-
-
-
-    }
-    
-}
-
-
 /*Ejercicio 15
 ¿Qué salida por la consola produce el siguiente código?
 ¿Qué se puede inferir respecto de la excepción división por cero en relación al tipo de los operandos?
@@ -458,12 +411,3 @@ van ingresando los valores el sistema debe mostrar por la consola la suma acumul
 Utilizar double.Parse() y try/catch para validar que la entrada ingresada sea un número válido,
 en caso contrario advertir con un mensaje al usuario y proseguir con el ingreso de datos.
 */
-
-void ejercicio16(){
-    
-    Console.WriteLine("Ingrese un numero por teclado o espacio para finalizar");
-    string numeroTeclado = Console.ReadLine();
-    while (numeroTeclado <> (" ")){
-        
-    }
-}
