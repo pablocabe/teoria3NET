@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Text;
 
 Console.WriteLine("Ingrese un numero de ejercicio");
 string? input = Console.ReadLine();
